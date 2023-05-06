@@ -10,9 +10,6 @@ on:
 jobs:
   linux-llvm-autobuild:
     runs-on: ubuntu-latest
-    container: debian:unstable-slim
-    env:
-      TZ: "Asia/Shanghai"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
