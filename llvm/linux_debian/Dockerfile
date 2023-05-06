@@ -1,6 +1,6 @@
 FROM debian:unstable-slim
 
-RUN apt install tar gcc cmake \
+RUN apt update -y && apt install tar gcc cmake \
           ninja-build build-essential git python3-dev libtbb-dev \
           libxml2-dev libedit-dev terminfo liblzma-dev swig lua5.3 liblua5.3-dev ocaml ocaml-findlib \
           libctypes-ocaml-dev doxygen ccache -y \
