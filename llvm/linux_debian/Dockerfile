@@ -9,7 +9,7 @@ RUN apt update -y && apt install tar clang lld cmake \
           -DCMAKE_C_COMPILER=clang \
           -DCMAKE_CXX_COMPILER=clang++ \
           -DLLVM_USE_LINKER=lld \
-          -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lld;lldb;libc;pstl;mlir;flang"   \
+          -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra;lld;lldb;libc;pstl;mlir"   \
           -DLLVM_TARGETS_TO_BUILD=Native   -DCMAKE_BUILD_TYPE=Release   -DCLANG_DEFAULT_CXX_STDLIB=libc++   \
           -DCLANG_DEFAULT_RTLIB=compiler-rt   -DLLVM_ENABLE_RUNTIMES="compiler-rt;libcxx;libcxxabi;libunwind" \
           -DLIBCXX_USE_COMPILER_RT=YES   -DLIBCXXABI_USE_COMPILER_RT=YES   -DLIBCXXABI_USE_LLVM_UNWINDER=YES \
