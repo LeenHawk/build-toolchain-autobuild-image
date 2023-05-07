@@ -15,6 +15,4 @@ RUN apt update -y && apt install tar gcc cmake \
     &&  cmake --build . \
     &&  cmake --build . --target ocaml_doc \
     &&  cmake --build . --target install \
-    &&  cd /root && rm -rf llvm-project \
-    && cd /root && rm -rf build \ 
-    && echo "export LD_LIBRARY_PATH=/usr/local/lib/x86_64-unknown-linux-gnu/:$LD_LIBRARY_PATH" >> /etc/bash.bashrc 
+    &&  cd /root && rm -rf llvm-project 
