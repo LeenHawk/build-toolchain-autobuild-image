@@ -2,8 +2,7 @@ FROM debian:unstable-slim
 
 RUN apt update -y && apt install tar clang lld cmake \
           ninja-build build-essential git python3-dev libtbb-dev \
-          libxml2-dev libedit-dev terminfo liblzma-dev swig lua5.3 liblua5.3-dev ocaml ocaml-findlib \
-          libctypes-ocaml-dev doxygen ccache -y \
+          libxml2-dev libedit-dev terminfo liblzma-dev swig doxygen ccache -y \
     && cd /root/ && git clone https://github.com/llvm/llvm-project.git && cd llvm-project && mkdir build && cd build \
     &&  cmake -G "Ninja" \
           -DCMAKE_C_COMPILER=clang \
