@@ -10,6 +10,8 @@ on:
 jobs:
   linux-llvm-autobuild:
     runs-on: ubuntu-latest
+    env:
+      TAG: 2001-01-01
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,7 +26,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
+      - name: Get Date
+        run: echo "TAG=$(date +%Y-%m-%d)" >> "$GITHUB_ENV"
+      - name: Build and push date
+        uses: docker/build-push-action@v4
+        with:
+          context: llvm/linux_debian
+          push: true
+          tags: leenhawk/llvm_debian:${{env.TAG}}
+      - name: Build and push latest
         uses: docker/build-push-action@v4
         with:
           context: llvm/linux_debian
@@ -32,6 +42,8 @@ jobs:
           tags: leenhawk/llvm_debian:latest
   linux-gcc-autobuild:
     runs-on: ubuntu-latest
+    env:
+      TAG: 2001-01-01
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -46,7 +58,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
+      - name: Get Date
+        run: echo "TAG=$(date +%Y-%m-%d)" >> "$GITHUB_ENV"
+      - name: Build and push date
+        uses: docker/build-push-action@v4
+        with:
+          context: gcc/linux_debian
+          push: true
+          tags: leenhawk/gcc_debian:${{env.TAG}}
+      - name: Build and push latest
         uses: docker/build-push-action@v4
         with:
           context: gcc/linux_debian
