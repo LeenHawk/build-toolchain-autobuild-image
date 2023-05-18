@@ -33,13 +33,11 @@ jobs:
         with:
           context: llvm/linux_debian
           push: true
-          tags: leenhawk/llvm_debian:${{env.TAG}}
-      - name: Build and push latest
-        uses: docker/build-push-action@v4
-        with:
-          context: llvm/linux_debian
-          push: true
-          tags: leenhawk/llvm_debian:latest
+          tags: | 
+            leenhawk/llvm_debian:${{env.TAG}}
+            leenhawk/llvm_debian:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   linux-gcc-autobuild:
     runs-on: ubuntu-latest
     env:
@@ -65,10 +63,8 @@ jobs:
         with:
           context: gcc/linux_debian
           push: true
-          tags: leenhawk/gcc_debian:${{env.TAG}}
-      - name: Build and push latest
-        uses: docker/build-push-action@v4
-        with:
-          context: gcc/linux_debian
-          push: true
-          tags: leenhawk/gcc_debian:latest
+          tags: |
+            leenhawk/gcc_debian:${{env.TAG}}
+            leenhawk/gcc_debian:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
