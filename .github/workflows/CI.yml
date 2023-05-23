@@ -36,8 +36,8 @@ jobs:
           tags: | 
             leenhawk/llvm_debian:${{env.TAG}}
             leenhawk/llvm_debian:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,name=llvm
+          cache-to: type=gha,mode=max,name=llvm
   linux-gcc-autobuild:
     runs-on: ubuntu-latest
     env:
@@ -66,5 +66,5 @@ jobs:
           tags: |
             leenhawk/gcc_debian:${{env.TAG}}
             leenhawk/gcc_debian:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,name=gcc
+          cache-to: type=gha,mode=max,name=gcc
