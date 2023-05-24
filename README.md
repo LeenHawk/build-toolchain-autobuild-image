@@ -1,1 +1,1 @@
-Just auto build for llvm and gcc trunk version docker image.
+Just auto build for llvm trunk version docker image.
