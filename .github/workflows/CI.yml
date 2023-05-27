@@ -36,5 +36,3 @@ jobs:
           tags: | 
             leenhawk/llvm_debian:${{env.TAG}}
             leenhawk/llvm_debian:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
